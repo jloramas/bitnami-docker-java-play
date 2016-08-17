@@ -21,6 +21,8 @@ if [ "$1" == "swift" -a "$2" == "app" -a "$3" == "start" ]; then
 	log "Swift app created"
     else 
 	log "App already created"
+        cd app_template/
+        swift build
     fi
 fi
 

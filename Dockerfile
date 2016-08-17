@@ -46,7 +46,7 @@ RUN chown -R bitnami:bitnami /app_template
 USER bitnami
 
 WORKDIR /app
-EXPOSE 8181
+EXPOSE 80
 
 ENTRYPOINT ["/app-entrypoint.sh"]
 CMD ["swift", "app", "start"]
