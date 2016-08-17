@@ -52,13 +52,13 @@
       {
         "name": "build and start",
         "type": "custom",
-        "commandLine": "cd ${current.project.path}/app_template && swift build && ./.build/debug/Dealer",
+        "commandLine": "cd ${current.project.path}/app_template && swift build && ./.build/debug/app_template",
         "attributes": {}
       },
       {
         "name": "build sample project",
         "type": "custom",
-        "commandLine": "cd ${current.project.path}/app_template && swift build",
+        "commandLine": "mkdir ${current.project.path}/app_template && cd ${current.project.path}/app_template &&  swift-package init --type executable && swift build",
         "attributes": {}
       }
     ]
