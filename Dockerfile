@@ -1,4 +1,4 @@
-OB## BUILDING
+## BUILDING
 ##   (from project root directory)
 ##   $ docker build -t bitnami-bitnami-docker-swift .
 ##
