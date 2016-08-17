@@ -50,14 +50,14 @@ Further, we also assume that your application will be using a database. In fact,
 We assume that you're starting the development of the [Swift](https://swift.org/) application from scratch. So lets begin by creating a directory for the application source where we'll be bootstrapping a Swift application:
 
 ```bash
-$ mkdir ~/workdir/myapp
-$ cd ~/workdir/myapp
+$ mkdir ~/workdir/my-app
+$ cd ~/workdir/my-app
 ```
 
 Next, download our Docker Compose orchestration file for Swift development:
 
 ```bash
-$ curl -L "https://raw.githubusercontent.com/bitnami/bitnami-docker-swift/master/docker-compose.yml" > docker-compose.yml
+$ curl -L "https://raw.githubusercontent.com/juan131/bitnami-docker-swift/master/docker-compose.yml" > docker-compose.yml
 ```
 
 > We encourage you to take a look at the contents of the orchestration file to get an idea of the services that will be started for Swift development.
