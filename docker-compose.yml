@@ -3,8 +3,8 @@ version: '2'
 services:
   myapp:
     tty: true # Enables debugging capabilities when attached to this container.
-    build: .
+    image: juanariza131/swift
     ports:
-      - '80:80'
+      - '8181:8181'
     volumes:
       - .:/app

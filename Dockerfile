@@ -39,14 +39,10 @@ ENV BITNAMI_APP_NAME=swift \
 
 COPY rootfs/ /
 
-# The extra files that we bundle should use the Bitnami User
-# so the entrypoint does not have any permission issues
-RUN chown -R bitnami:bitnami /app_template
-
 USER bitnami
 
 WORKDIR /app
-EXPOSE 80
+EXPOSE 8181
 
 ENTRYPOINT ["/app-entrypoint.sh"]
 CMD ["swift", "app", "start"]
