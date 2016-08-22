@@ -1,7 +1,11 @@
 # Eclipse Che Developer Workspace
-Click to get an Eclipse Che on-demand workspace with a sample project ready to start developing.
+You can use this Development environment to create an Eclipse Che on-demand workspace with a sample project ready to start developing. Click the link below to automatically create and launch a Swift environment workspace on Codenvy: 
 
 [![Contribute](http://beta.codenvy.com/factory/resources/codenvy-contribute.svg)](https://beta.codenvy.com/f/?url=https%3A%2F%2Fgithub.com%2Fjuan131%2Fbitnami-docker-swift%2Ftree%2Fche)
+
+You can find more information about Eclipse Che workspaces at the [Eclipse Che Official Documentation](https://eclipse-che.readme.io/docs/introduction)
+
+If you are note interested on Eclipse Che on-demand workspaces, you can skip this step and follow the documentation below.
 
 # Swift Application Development using Bitnami Docker Images
 
@@ -76,7 +80,7 @@ After the images have been downloaded, each of the services listed in the orches
 
 The service starts `myapp` and uses the Bitnami Swift development image. The service mounts the current working directory (`~/workdir/myapp`) at the `/app` location in the container and provides all the necessary infrastucture to get you started developing a data-driven Swift application.
 
-This Docker Image assumes that in case you decide to deploy a web application written in Swift, the web server will be listening in the port `80`. Once the app has been started, visit port `80` of the Docker Machine in your favourite web browser and you'll be able to reach the HTTP content. If you want to use any other port, you will need to modify both the Dockerfile and the docker-compose.yml files as described below:
+This Docker Image assumes that in case you decide to deploy a web application written in Swift, the web server will be listening in the port `80`. If you want to use any other port, you will need to modify both the Dockerfile and the docker-compose.yml files as described below:
 
 Dockefile:
 
@@ -92,7 +96,7 @@ Lets inspect the contents of the `~/workdir/myapp` directory:
 
 ```bash
 ~/workdir/myapp # ls
-LICENSE  Packages  Package.swift  README.md  Sources  webroot
+LICENSE  Packages  Package.swift  README.md  Sources
 ```
 
 You can see that we have a new Swift application bootstrapped in the `~/workdir/myapp` directory of the host.
@@ -107,10 +111,10 @@ In the next sections we take a look at some of the common tasks that are involve
 
 You may recall that we've not installed a single Swift component on the host and that the entire development environment is running inside the `myapp` service container. This means that if we wanted to execute [SWIFT-PACKAGE](https://swift.org/) or any other Swift command, we'd have to execute it inside the container.
 
-This may sound like a complex task to achieve. But don't worry, Docker Compose makes it very simple to execute tasks inside a service container using the `exec` command. The general form of the command looks something like the following:
+This may sound like a complex task to achieve. But don't worry, Docker Compose makes it very simple to execute tasks inside a service container using the `run` command. The general form of the command looks something like the following:
 
 ```bash
-$ docker-compose exec <service> <command>
+$ docker-compose run <service> <command>
 ```
 
 This instructs Docker Compose to execute the command specified by `<command>` inside the service container specified by `<service>`. The return value of the `docker-compose` command will reflect that of the specified command.
@@ -118,27 +122,21 @@ This instructs Docker Compose to execute the command specified by `<command>` in
 To see the Swift version currently installed:
 
 ```bash
-$ docker-compose exec myapp swift --version
+$ docker-compose run myapp swift --version
 ```
 
 You get the idea..
 
-You can create a new swift project:
-
-```bash
-$ docker-compose exec myapp swift-package init
-```
-
 Then you can develop your swift code and when your app is ready to be build you can execute:
 
 ```bash
-$ docker-compose exec myapp swift build
+$ docker-compose run myapp swift build
 ```
 
 Finally you can execute your app:
 
 ```bash
-$ docker-compose exec myapp .build/debug/yourapp
+$ docker-compose run myapp .build/debug/yourapp
 ```
 
 Thats it!
