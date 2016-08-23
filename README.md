@@ -1,12 +1,3 @@
-# Eclipse Che Developer Workspace
-You can use this Development environment to create an Eclipse Che on-demand workspace with a sample project ready to start developing. Click the link below to automatically create and launch a Swift environment workspace on Codenvy: 
-
-[![Contribute](http://beta.codenvy.com/factory/resources/codenvy-contribute.svg)](https://beta.codenvy.com/f/?url=https%3A%2F%2Fgithub.com%2Fjuan131%2Fbitnami-docker-swift%2Ftree%2Fche)
-
-You can find the configuation files used on the previous link in the [Che branch](https://github.com/juan131/bitnami-docker-swift/tree/che). You can find more information about Eclipse Che workspaces at the [Eclipse Che Official Documentation](https://eclipse-che.readme.io/docs/introduction).
-
-If you are not interested on Eclipse Che on-demand workspaces, you can skip this step and follow the documentation below.
-
 # Swift Application Development using Bitnami Docker Images
 
 We increasingly see developers adopting two strategies for development. Using a so called “micro services” architecture and using containers for development. At Bitnami, we have developed tools and assets that dramatically lowers the overhead for developing with this approach.
@@ -14,6 +5,16 @@ We increasingly see developers adopting two strategies for development. Using a 
 If you’ve never tried to start a project with containers before, or you have tried it and found the advice, tools, and documentation to be chaotic, out of date, or wrong, then this tutorial may be for you.
 
 In this tutorial we walk you through using the Bitnami docker images during the development lifecycle of a Swift application.
+
+# Eclipse Che Developer Workspace
+
+You can also use this Development environment to create an Eclipse Che on-demand workspace with a sample project ready to start developing. Click the link below to automatically create and launch a Swift environment workspace on Codenvy:
+
+[![Contribute](http://beta.codenvy.com/factory/resources/codenvy-contribute.svg)](https://beta.codenvy.com/f/?url=https%3A%2F%2Fgithub.com%2Fjuan131%2Fbitnami-docker-swift%2Ftree%2Fche)
+
+You can find the configuation files used on the previous link in the [Che branch](https://github.com/juan131/bitnami-docker-swift/tree/che). You can find more information about Eclipse Che workspaces at the [Eclipse Che Official Documentation](https://eclipse-che.readme.io/docs/introduction)
+
+If you are not interested on Eclipse Che on-demand workspaces, you can skip this step and follow the documentation below.
 
 # Why Docker?
 
