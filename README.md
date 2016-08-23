@@ -6,9 +6,9 @@ If you’ve never tried to start a project with containers before, or you have t
 
 In this tutorial we walk you through using the Bitnami docker images during the development lifecycle of a Swift application.
 
-You can download this repository locally to your computer to start working with the tutorial, or you can just create an  on-demand Eclipse Che development workspace with everything you need on it.
+### Eclipse Che Development Workspace
 
-#### Eclipse Che Development Workspace
+You can download this repository locally to your computer to start working with the tutorial or just create an on-demand Eclipse Che development workspace with everything you need on it.
 
 Click the link below to automatically create and launch a Swift environment workspace on Codenvy:
 
@@ -16,7 +16,7 @@ Click the link below to automatically create and launch a Swift environment work
 
 You can find the configuation files used on the previous link in the [Che branch](https://github.com/juan131/bitnami-docker-swift/tree/che). You can find more information about Eclipse Che workspaces at the [Eclipse Che Official Documentation](https://eclipse-che.readme.io/docs/introduction)
 
-If want to start developing locally skip this step and follow the documentation below.
+If you want to start developing locally skip this step and follow the documentation below.
 
 # Why Docker?
 
