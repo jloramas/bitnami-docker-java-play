@@ -3,7 +3,7 @@ version: '2'
 services:
   myapp:
     tty: true # Enables debugging capabilities when attached to this container.
-    image: juanariza131/swift
+    image: jloramas/javaplay
     ports:
       - '80:80'
     volumes:
