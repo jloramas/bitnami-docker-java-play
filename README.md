@@ -8,7 +8,7 @@ In this tutorial we walk you through using the Bitnami docker images during the 
 
 ### Eclipse Che Development Workspace
 
-You can download this repository locally to your computer to start working with the tutorial or just create an on-demand Eclipse Che development workspace with everything you need on it. Click the link below to automatically create and launch a Swift environment workspace on Codenvy:
+You can download this repository locally to your computer to start working with the tutorial or just click the link below to automatically create and launch a Swift on-demand Eclipse Che development workspace on Codenvy:
 
 [![Contribute](http://beta.codenvy.com/factory/resources/codenvy-contribute.svg)](https://beta.codenvy.com/f/?url=https%3A%2F%2Fgithub.com%2Fjuan131%2Fbitnami-docker-swift%2Ftree%2Fche)
 
