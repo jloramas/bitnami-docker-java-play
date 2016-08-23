@@ -9,7 +9,7 @@ We think developers are adopting containers for development because they offer m
 ## How does it works?
 It's very simple, you just need a environment container's Docker Image and create a JSON configuration file defining the content and the structure of the workspace. 
 
-We already provide both the workspace's configuration file and the Swift development container. You can use the previous link to automatically create an on-demand workspace in Codenvy or create it manually on your own Eclipse Che instance. You can obtain an [Eclipse Che Virtual Machine](https://bitnami.com/stack/eclipse-che) or [launch it in the Cloud](https://bitnami.com/stack/eclipse-che/cloud)
+We already provide both the workspace's configuration file and the Swift development container. You can use the previous link to automatically create an on-demand workspace in Codenvy or create it manually on your own Eclipse Che instance. You can obtain an [Eclipse Che Virtual Machine](https://bitnami.com/stack/eclipse-che) or [launch it in the Cloud](https://bitnami.com/stack/eclipse-che/cloud).
 
-You can find more information about Eclipse Che workspaces at the [Eclipse Che Official Documentation](https://eclipse-che.readme.io/docs/introduction)
+You can find more information about Eclipse Che workspaces at the [Eclipse Che Official Documentation](https://eclipse-che.readme.io/docs/introduction).
 
