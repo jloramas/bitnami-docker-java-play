@@ -1,20 +1,10 @@
 # Java / Play framework Application Development using Bitnami Docker Images
 
-We increasingly see developers adopting two strategies for development. Using a so called “micro services” architecture and using containers for development. At Bitnami, we have developed tools and assets that dramatically lowers the overhead for developing with this approach.
+We increasingly see developers adopting two strategies for development. Using a so called 'micro services' architecture and using containers for development. At Bitnami, we have developed tools and assets that dramatically lowers the overhead for developing with this approach.
 
-If you’ve never tried to start a project with containers before, or you have tried it and found the advice, tools, and documentation to be chaotic, out of date, or wrong, then this tutorial may be for you.
+If you've never tried to start a project with containers before, or you have tried it and found the advice, tools, and documentation to be chaotic, out of date, or wrong, then this tutorial may be for you.
 
 In this tutorial we walk you through using the Bitnami docker images during the development lifecycle of a Java / Play framework application.
-
-### Eclipse Che Developer Workspace
-
-You can download this repository locally to your computer to start working with the tutorial or just click the link below to automatically create and launch a Java / Play framework on-demand Eclipse Che developer workspace on Codenvy:
-
-[![Contribute](http://beta.codenvy.com/factory/resources/codenvy-contribute.svg)](https://beta.codenvy.com/f/?url=https%3A%2F%2Fgithub.com%2Fjloramas%2Fbitnami-docker-java-play%2Ftree%2Fche)
-
-You can find the configuation files used on the previous link in the [Che branch](https://github.com/jloramas/bitnami-docker-java-play/tree/che). For more information about Eclipse Che workspaces check  the [official documentation](https://eclipse-che.readme.io/docs/introduction)
-
-If you want to start developing locally skip this step and follow the documentation below.
 
 # Why Docker?
 
@@ -23,7 +13,6 @@ We think developers are adopting containers for development because they offer m
 Docker development environments are more likely to be reproducible than VMs because the definition of each container and how to build it is captured in a Dockerfile.
 
 Docker also has a well known and standard API so tools and cloud services are readily available for docker containers.
-
 
 # The Bitnami Approach
 
@@ -60,7 +49,7 @@ $ mkdir ~/workdir/my-app
 $ cd ~/workdir/my-app
 ```
 
-Next, download our Docker Compose orchestration file for Swift development:
+Next, download our Docker Compose orchestration file for Play development:
 
 ```bash
 $ curl -L "https://raw.githubusercontent.com/jloramas/bitnami-docker-java-play/master/docker-compose.yml" > docker-compose.yml
@@ -82,32 +71,32 @@ After the images have been downloaded, each of the services listed in the orches
 
 The service starts `myapp` and uses the Bitnami Java / Play framework development image. The service mounts the current working directory (`~/workdir/myapp`) at the `/app` location in the container and provides all the necessary infrastucture to get you started developing a data-driven Java / Play framework based application.
 
-This Docker Image assumes that in case you decide to deploy a web application written in Play framework, the web server will be listening in the port `80`. If you want to use any other port, you will need to modify both the Dockerfile and the docker-compose.yml files as described below:
+This Docker Image assumes that in case you decide to deploy a web application written in Play framework, the web server will be listening in the port `9000`. If you want to use any other port, you will need to modify both the Dockerfile and the docker-compose.yml files as described below:
 
 Dockefile:
 
-~~EXPOSE 80~~
+~~EXPOSE 9000~~
 EXPOSE NEWPORT
 
 docker-compose.yml:
 
-~~80:80~~
+~~9000:9000~~
 NEWPORT:NEWPORT
 
 Lets inspect the contents of the `~/workdir/myapp` directory:
 
 ```bash
 ~/workdir/myapp # ls
-LICENSE  Packages  Package.swift  README.md  Sources
+LICENSE  README  app  bin  build.sbt  conf  libexec  logs  project  public  target test
 ```
 
 You can see that we have a new Java / Play framework application bootstrapped in the `~/workdir/myapp` directory of the host.
 
 Since the application source resides on the host, you can use your favourite IDE for developing the application. Only the execution of the application occurs inside the isolated container environment.
 
-That’s all there is to it. Without actually installing the Play framework component on the host you have a completely isolated and highly reproducible Java / Play framework development environment which can be shared with the rest of the team to get them started building the next big feature without worrying about the plumbing involved in setting up the development environment. Let Bitnami do that for you.
+That's all there is to it. Without actually installing the Play framework component on the host you have a completely isolated and highly reproducible Java / Play framework development environment which can be shared with the rest of the team to get them started building the next big feature without worrying about the plumbing involved in setting up the development environment. Let Bitnami do that for you.
 
-In the next sections we take a look at some of the common tasks that are involved during the development of a Swift application and how we go about executing those tasks.
+In the next sections we take a look at some of the common tasks that are involved during the development of a Play application and how we go about executing those tasks.
 
 ## Executing commands
 
@@ -121,24 +110,31 @@ $ docker-compose run <service> <command>
 
 This instructs Docker Compose to execute the command specified by `<command>` inside the service container specified by `<service>`. The return value of the `docker-compose` command will reflect that of the specified command.
 
-To see the Play framework version currently installed:
+Because of the way Activator works with directories, we'll simply get inside the container and perform operations from there!
 
 ```bash
-$ docker-compose run myapp swift --version
+$ docker-compose run myapp bash
+```
+
+Now were in! To create a new Play Scala project
+
+```bash
+$ activator new bitnamiRocks play-scala
 ```
 
 You get the idea..
 
-Then you can develop your swift code and when your app is ready to be build you can execute:
+Then you may want to have a look at the ui
 
 ```bash
-$ docker-compose run myapp swift build
+$ cd bitnamiRocks
+$ activator ui -Dhttp.host=0.0.0.0
 ```
 
-Finally you can execute your app:
+Finally you can serve your app:
 
 ```bash
-$ docker-compose run myapp .build/debug/yourapp
+$ activator run -Dhttp.host=0.0.0.0
 ```
 
-Thats it!
+That's it!

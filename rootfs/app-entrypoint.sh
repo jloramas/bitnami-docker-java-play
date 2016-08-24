@@ -1,39 +1,42 @@
 #!/bin/bash
 set -e
 
-source /opt/bitnami/stacksmith-utils.sh
-print_welcome_page
-
 #set app name to ENV or default
-SWIFT_APP="my-app"
+PLAY_PROJECT_NAME="test"
+PLAY_TEMPLATE="play-java"
+PLAY_PROJECT_PORT="9000"
 
-if [ "$APP_NAME" != "" ]; then
-    SWIFT_APP=$APP_NAME
+if [ "$APP_NAME" != "" ] ; then
+    PLAY_PROJECT_NAME=$APP_NAME
 fi
 
-PROJECT_DIRECTORY=/app/$SWIFT_APP
+if [ "$ACTIVATOR_TEMPLATE" != "" ] ; then
+    PLAY_PROJECT_TEMPLATE=$ACTIVATOR_TEMPLATE
+fi
 
-app_present() {
-    [ -d $PROJECT_DIRECTORY ]
-}
+if [ "$APP_PORT" != "" ] ; then
+    PLAY_PROJECT_PORT=$APP_PORT
+fi
+
+PROJECT_DIRECTORY=/app/$PLAY_PROJECT_NAME
 
 log () {
     echo -e "\033[0;33m$(date "+%H:%M:%S")\033[0;37m ==> $1."
 }
 
-if [ "$1" == "swift" -a "$2" == "app" -a "$3" == "start" ]; then
-    if ! app_present; then
-	log "Creating example Swift application"
-	mkdir $PROJECT_DIRECTORY
-	cd $PROJECT_DIRECTORY
-        swift-package init --type executable
-	swift build
-	log "Swift app created"
+if [ "$1" == "activator" -a "$2" == "run" ] ; then
+    if [ ! -d $PROJECT_DIRECTORY ] ; then
+	  log "Creating example Play application"
+      cd /app
+      activator new $PLAY_PROJECT_NAME $PLAY_TEMPLATE
+      log "Play app created"
     else 
-	log "App already created"
-        cd $PROJECT_DIRECTORY
-        swift build
+	  log "App already created"
+      cd $PROJECT_DIRECTORY 
     fi
 fi
 
-exec $PROJECT_DIRECTORY/.build/debug/$SWIFT_APP
+# Making sure we end up in the project directory
+cd $PROJECT_DIRECTORY
+
+exec /entrypoint.sh "$@"

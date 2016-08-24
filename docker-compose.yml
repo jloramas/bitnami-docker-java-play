@@ -2,9 +2,10 @@ version: '2'
 
 services:
   myapp:
-    tty: true # Enables debugging capabilities when attached to this container.
-    image: jloramas/javaplay
+    stdin_open: true
+    build: .
     ports:
-      - '80:80'
+      - '8888:8888'
+      - '9000:9000'
     volumes:
       - .:/app
