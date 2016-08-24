@@ -60,7 +60,7 @@
       {
         "name": "build sample project",
         "type": "custom",
-        "commandLine": "activator new app_template play-java",
+        "commandLine": "cd ${current.project.path} && activator new app_template play-java",
         "attributes": {}
       }
     ]
