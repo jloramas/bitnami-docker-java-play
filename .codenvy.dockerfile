@@ -2,8 +2,6 @@ FROM gcr.io/stacksmith-images/ubuntu-buildpack:14.04-r8
 
 MAINTAINER Bitnami <containers@bitnami.com>
 
-USER root
-
 # Install extra packages
 RUN apt-get update && \
     apt-get install -y software-properties-common && \

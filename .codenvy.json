@@ -26,11 +26,11 @@
     "projects": [
       {
         "name": "play-sample",
-        "type": "blank",
+        "type": "java",
         "path": "/play-sample",
         "source": {
           "type": "git",
-          "location": "https://github.com/jloramas/bitnami-docker-java-play.git",
+          "location": "https://github.com/jloramas/bitnami-docker-java-play",
           "parameters": {
             "branch": "che",
             "keepVcs": "true"
