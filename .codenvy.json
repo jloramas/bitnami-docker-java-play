@@ -50,17 +50,17 @@
     ],
     "commands": [
       {
-        "name": "build and start",
+        "name": "run first",
         "type": "custom",
-        "commandLine": "cd ${current.project.path}/app_template && activator run -Dhttp.port=9000 -Dhttp.host=0.0.0.0",
+        "commandLine": "source /opt/bitnami/stacksmith-utils.sh && print_welcome_page && cd ${current.project.path}/app_template && activator run -Dhttp.port=9000 -Dhttp.host=0.0.0.0",
         "attributes": {
            "previewUrl": "http://${server.port.9000}/"
         }
       },
       {
-        "name": "build sample project",
+        "name": "create project",
         "type": "custom",
-        "commandLine": "cd ${current.project.path} && activator new app_template play-java",
+        "commandLine": "source /opt/bitnami/stacksmith-utils.sh && print_welcome_page && cd ${current.project.path} && activator new app_template play-java",
         "attributes": {}
       }
     ]
